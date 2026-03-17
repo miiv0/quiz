@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizForge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Quiz<span>Forge</span></div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+    </header>
+
+    <!-- IMPORT -->
+    <div id="import-section">
+      <p class="section-title">// Paste your questions</p>
+      <div class="import-area">
+        <textarea id="inputText" placeholder="Paste your questions here. Format:
+
+**Question 1:**
+What is the capital of France?
+* Berlin
+* Madrid
+* **Paris**
+* Rome
+
+**Question 2:**
+...
+
+The answer wrapped in **double asterisks** is the correct one."></textarea>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="parseAndStart()">Generate Quiz →</button>
+          <button class="btn btn-secondary" onclick="loadDemo()">Load Demo</button>
+          <button class="btn btn-secondary" onclick="clearInput()">Clear</button>
+        </div>
+        <div id="parseInfo" class="parse-info"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz-section">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div id="quiz-questions"></div>
+      <div class="btn-row" style="margin-top:1.5rem">
+        <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()">Submit Quiz →</button>
+        <button class="btn btn-secondary" onclick="backToImport()">← Back</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results-section">
+      <p class="section-title">// Results</p>
+      <div class="score-card">
+        <div class="score-big" id="scorePct">0%</div>
+        <div class="score-label">Score</div>
+        <div class="score-sub" id="scoreDetail"></div>
+      </div>
+      <p class="section-title">// Question breakdown</p>
+      <div class="results-list" id="resultsList"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="retake()">Retake Quiz ↺</button>
+        <button class="btn btn-secondary" onclick="backToImport()">New Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
